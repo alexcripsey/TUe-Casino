@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.util.*;
 
 public class diceRoll {
     private JPanel diceRollMainPanel;
@@ -17,6 +18,15 @@ public class diceRoll {
             screen.showHome();
         });
 
+    }
+
+    public boolean roll(int n) {
+        Random r = new Random(67);
+        int roll = 6;
+
+        if (n == roll) {
+            return true;
+        } else return false;
     }
 
 
