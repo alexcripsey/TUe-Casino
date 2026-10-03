@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="roulette">
+  <grid id="27dc6" binding="rouletteMainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="cd518" binding="rouletteTopPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="72a0e" class="javax.swing.JLabel" binding="rouletteTitleLabel">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <horizontalAlignment value="0"/>
+              <text value="Roulette"/>
+            </properties>
+          </component>
+          <component id="befe6" class="javax.swing.JButton" binding="rouletteReturnButton">
+            <constraints border-constraint="West"/>
+            <properties>
+              <text value="Button"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="75360" binding="rouletteCenterPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="21927" class="javax.swing.JLabel" binding="rouletteImage">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <horizontalAlignment value="0"/>
+              <text value="Roulette Image"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="6690a" binding="rouletteBottomPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="South"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="e8979" class="javax.swing.JTextField" binding="rouletteBetEntry">
+            <constraints/>
+            <properties/>
+          </component>
+          <hspacer id="c5a30">
+            <constraints/>
+          </hspacer>
+          <component id="d52a" class="javax.swing.JComboBox" binding="rouletteBetChoice">
+            <constraints/>
+            <properties/>
+          </component>
+          <component id="9bf7f" class="javax.swing.JButton" binding="rouletteBetSubmit">
+            <constraints/>
+            <properties>
+              <text value="Button"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

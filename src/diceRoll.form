@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="diceRoll">
+  <grid id="27dc6" binding="diceRollMainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="65594" binding="diceRollTopPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="e25df" class="javax.swing.JLabel" binding="diceRollTitleLabel">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <horizontalAlignment value="0"/>
+              <text value="Dice Roll"/>
+            </properties>
+          </component>
+          <component id="5fdf0" class="javax.swing.JButton" binding="diceRollReturnButton">
+            <constraints border-constraint="West"/>
+            <properties>
+              <text value="Button"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="cb81d" binding="diceRollCenterPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="b84bb" class="javax.swing.JLabel" binding="diceRollImage">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <horizontalAlignment value="0"/>
+              <text value="Dice roll Image"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="a9f0e" binding="diceRollBottomPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="South"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="d42e4" class="javax.swing.JTextField" binding="diceRollBetEntry">
+            <constraints/>
+            <properties/>
+          </component>
+          <hspacer id="c37b">
+            <constraints/>
+          </hspacer>
+          <component id="8922d" class="javax.swing.JComboBox" binding="diceRollBetChoice">
+            <constraints/>
+            <properties/>
+          </component>
+          <component id="a1c58" class="javax.swing.JButton" binding="diceRollBetSubmit">
+            <constraints/>
+            <properties>
+              <text value="Button"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

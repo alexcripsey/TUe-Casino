@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="slots">
+  <grid id="27dc6" binding="slotsMainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="b9ce1" binding="slotsTopPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="21a54" class="javax.swing.JLabel" binding="slotsTitleLabel">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <horizontalAlignment value="0"/>
+              <text value="Slots Machine"/>
+            </properties>
+          </component>
+          <component id="6993a" class="javax.swing.JButton" binding="slotsReturnButtonlimit">
+            <constraints border-constraint="West"/>
+            <properties>
+              <text value="Button"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="d8118" binding="slotBottomPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="South"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="c5b3c" class="javax.swing.JTextField" binding="slotsBetEntry">
+            <constraints/>
+            <properties/>
+          </component>
+          <hspacer id="a7f5e">
+            <constraints/>
+          </hspacer>
+          <component id="dbab8" class="javax.swing.JComboBox" binding="slotsBetChoice">
+            <constraints/>
+            <properties/>
+          </component>
+          <component id="521c8" class="javax.swing.JButton" binding="slotsBetSubmit">
+            <constraints/>
+            <properties>
+              <text value="Button"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="c0ab4" binding="slotsCenterPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="b4ea5" class="javax.swing.JLabel">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <horizontalAlignment value="0"/>
+              <text value="Slots Machine Image"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
