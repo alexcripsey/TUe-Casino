@@ -24,21 +24,22 @@
           </component>
         </children>
       </grid>
-      <grid id="5c11e" binding="coinTossTopPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+      <grid id="5c11e" binding="coinTossTopPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="North"/>
         <properties/>
         <border type="none"/>
         <children>
           <component id="eab1" class="javax.swing.JButton" binding="coinTossReturnButton">
-            <constraints/>
+            <constraints border-constraint="West"/>
             <properties>
               <horizontalAlignment value="0"/>
               <text value="Return"/>
             </properties>
           </component>
           <component id="44493" class="javax.swing.JLabel" binding="coinTossTitleLabel">
-            <constraints/>
+            <constraints border-constraint="Center"/>
             <properties>
+              <horizontalAlignment value="0"/>
               <text value="Coin Toss"/>
             </properties>
           </component>

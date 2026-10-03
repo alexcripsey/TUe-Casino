@@ -12,6 +12,12 @@ public class roulette {
     private JTextField rouletteBetEntry;
     private JButton rouletteReturnButton;
 
+    public roulette(mainScreen screen) {
+        rouletteReturnButton.addActionListener(e -> {
+            screen.showHome();
+        });
+    }
+
     public JPanel getRouletteMainPanel() {
         return rouletteMainPanel;
     }

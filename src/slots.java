@@ -11,7 +11,16 @@ public class slots {
     private JLabel slotsTitleLabel;
     private JButton slotsReturnButtonlimit;
 
+
+    public slots(mainScreen screen) {
+        slotsReturnButtonlimit.addActionListener(e -> {
+            screen.showHome();
+        });
+    }
+
     public JPanel getSlotsMainPanel() {
         return slotsMainPanel;
     }
+
+
 }

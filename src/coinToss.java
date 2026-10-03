@@ -12,9 +12,14 @@ public class coinToss {
     private JLabel coinTossImage;
     private JButton coinTossReturnButton;
 
+    public coinToss(mainScreen screen) {
+        coinTossReturnButton.addActionListener(e -> {
+            screen.showHome();
+        });
+    }
+
     public JPanel getCoinTossPanel() {
         return coinTossMainPanel;
     }
-
 
 }

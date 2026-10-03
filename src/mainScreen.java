@@ -10,6 +10,7 @@ public class mainScreen extends JFrame {
     private JButton rouletteButton;
     private JButton coinTossButton;
     private JPanel contentPanel;
+    private JPanel buttonSelectPanel;
     private coinToss coinTossForm;
     private diceRoll diceRollForm;
     private roulette rouletteForm;
@@ -23,10 +24,10 @@ public class mainScreen extends JFrame {
         setSize(420, 420);
         setLocationRelativeTo(null);
 
-        coinTossForm = new coinToss();
-        diceRollForm = new diceRoll();
-        rouletteForm = new roulette();
-        slotsForm = new slots();
+        coinTossForm = new coinToss(this);
+        diceRollForm = new diceRoll(this);
+        rouletteForm = new roulette(this);
+        slotsForm = new slots(this);
 
         diceRollButton.addActionListener(e -> {
             showPanel(diceRollForm.getDiceRollPanel());
@@ -45,8 +46,12 @@ public class mainScreen extends JFrame {
         });
 
 
-
     }
+
+    public void showHome() {
+        showPanel(buttonSelectPanel);
+    }
+
     private void showPanel(JPanel newPanel) {
         if (newPanel == null) {
             System.out.println("Error: The panel passed to showPanel is NULL");

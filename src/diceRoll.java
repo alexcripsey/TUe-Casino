@@ -12,6 +12,15 @@ public class diceRoll {
     private JLabel diceRollImage;
     private JButton diceRollReturnButton;
 
+    public diceRoll(mainScreen screen) {
+        diceRollReturnButton.addActionListener(e -> {
+            screen.showHome();
+        });
+
+    }
+
+
+
     public JPanel getDiceRollPanel() {
         return diceRollMainPanel;
     }
