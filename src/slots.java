@@ -1,0 +1,17 @@
+import javax.swing.*;
+
+public class slots {
+    private JPanel slotsMainPanel;
+    private JTextField slotsBetEntry;
+    private JComboBox slotsBetChoice;
+    private JButton slotsBetSubmit;
+    private JPanel slotsTopPanel;
+    private JPanel slotBottomPanel;
+    private JPanel slotsCenterPanel;
+    private JLabel slotsTitleLabel;
+    private JButton slotsReturnButtonlimit;
+
+    public JPanel getSlotsMainPanel() {
+        return slotsMainPanel;
+    }
+}
