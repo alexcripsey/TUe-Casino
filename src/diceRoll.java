@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.util.*;
 
-public class diceRoll {
+public class diceRoll extends JFrame{
     private JPanel diceRollMainPanel;
     private JTextField diceRollBetEntry;
     private JComboBox diceRollBetChoice;

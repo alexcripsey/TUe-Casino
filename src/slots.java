@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class slots {
+public class slots extends JFrame {
     private JPanel slotsMainPanel;
     private JTextField slotsBetEntry;
     private JComboBox slotsBetChoice;

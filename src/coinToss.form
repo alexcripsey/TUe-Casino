@@ -50,18 +50,25 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="13702" class="javax.swing.JTextField" binding="coinTossBetEntry">
+          <component id="13702" class="javax.swing.JTextField" binding="betEntry">
             <constraints/>
-            <properties/>
+            <properties>
+              <text value=""/>
+            </properties>
           </component>
           <hspacer id="6f10d">
             <constraints/>
           </hspacer>
-          <component id="3098" class="javax.swing.JComboBox" binding="coinTossBetChoice">
+          <component id="3098" class="javax.swing.JComboBox" binding="betChoice">
             <constraints/>
-            <properties/>
+            <properties>
+              <model>
+                <item value="Heads"/>
+                <item value="Tails"/>
+              </model>
+            </properties>
           </component>
-          <component id="a26a4" class="javax.swing.JButton" binding="coinTossBetSubmit">
+          <component id="a26a4" class="javax.swing.JButton" binding="betSubmit">
             <constraints/>
             <properties>
               <text value="Button"/>
