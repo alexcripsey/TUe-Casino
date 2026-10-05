@@ -5,10 +5,10 @@ public class Wallet {
         return money;
     }
 
-    public void winMoney(int n) {
+    public void addMoney(int n) {
         money+= n;
     }
-    public void loseMoney(int n){
+    public void subtractMoney(int n){
         money-= n;
     }
 }

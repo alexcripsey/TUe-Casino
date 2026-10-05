@@ -13,21 +13,34 @@ public class coinToss extends JFrame {
     private JLabel coinTossTitleLabel;
     private JLabel coinTossImage;
     private JButton coinTossReturnButton;
+    private final Game game;
 
-    public coinToss(mainScreen screen) {
-        Game game = null;
-        Wallet wallet;
+    public coinToss(mainScreen screen, Wallet wallet) {
+        this.game = new Game(wallet);
         coinTossReturnButton.addActionListener(e -> {
             screen.showHome();
         });
+
         betEntry.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //have to find a way for parseInt not to crash if nothing gets put into betEntry or if it is a text.
-                int bet = Integer.parseInt(betEntry.getText());
-                betEntry.setText(game.makeValid(bet));
+                if (Game.isInteger(betEntry.getText())) {
+                    int bet = Integer.parseInt(betEntry.getText().trim());
+                    betEntry.setText(game.makeValid(bet));
+                }
             }
         });
+
+        betSubmit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playRound();
+            }
+        });
+    }
+    private void playRound(){
+
+
     }
 
     public JPanel getCoinTossPanel() {

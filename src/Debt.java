@@ -5,13 +5,13 @@ public class Debt {
         this.debt = debt;
     }
     public void payDebt(int n){
-        //have to unable being able to pay more money than what they have
-        debt -= n;
-        wallet.money += n;
-
+        if(n <= wallet.getMoney()) {
+            debt -= n;
+            wallet.subtractMoney(n);
+        }
     }
     public void getLoan(int n){
         debt += n;
-        wallet.money += n;
+        wallet.addMoney(n);
     }
 }
