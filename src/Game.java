@@ -4,10 +4,7 @@ public class Game {
     public Game (Wallet wallet) {
         this.wallet = wallet;
     }
-    public static boolean isInteger(String bet) {
-        if (bet == null) return false;
-        return bet.matches("^[+-]?\\d+$");
-    }
+
     public String makeValid(int bet) {
         if (bet <= 0){
             return "1";
@@ -22,6 +19,7 @@ public class Game {
             return str.toString();
         }
     }
+
     public void isValid(){
 
     }
