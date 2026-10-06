@@ -46,10 +46,9 @@ public class diceRoll extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 //check if bet amount is less than wallet
                 int betAmount = Integer.parseInt(diceRollBetEntry.getText());
-                String selectedText = diceRollBetChoice.getSelectedItem().toString();
-                int bet = Integer.parseInt(selectedText);
+                int selectedIndex = diceRollBetChoice.getSelectedIndex();
 
-                    if (roll(bet)) {
+                    if (roll(selectedIndex)) {
                         wallet.addMoney(betAmount * 2);
                     } else {
                         wallet.subtractMoney(betAmount);
