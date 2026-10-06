@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.*;
 
 public class coinToss extends JFrame {
     private JPanel coinTossMainPanel;
@@ -43,23 +44,9 @@ public class coinToss extends JFrame {
             }
         });
 
-        betSubmit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int betAmount = Integer.parseInt(diceRollBetEntry.getText());
-                String selectedText = diceRollBetChoice.getSelectedItem().toString();
-                int bet = Integer.parseInt(selectedText);
-                if (toss(bet))
-            }
-        });
-    }
-    private boolean toss(){
-
-
     }
 
-    public JPanel getCoinTossPanel() {
+    public JPanel getCoinTossPanel () {
         return coinTossMainPanel;
     }
-
 }
