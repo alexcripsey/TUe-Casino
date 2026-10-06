@@ -26,7 +26,7 @@ public class mainScreen extends JFrame {
         setLocationRelativeTo(null);
 
         coinTossForm = new coinToss(this, wallet);
-        diceRollForm = new diceRoll(this);//need to send wallet to all of them so they know the amount of money it has
+        diceRollForm = new diceRoll(this, wallet);
         rouletteForm = new roulette(this);
         slotsForm = new slots(this);
 

@@ -13,8 +13,11 @@ public class diceRoll extends JFrame{
     private JLabel diceRollTitleLabel;
     private JLabel diceRollImage;
     private JButton diceRollReturnButton;
+    private final Game game;
+    private final Random r = new Random();
 
-    public diceRoll(mainScreen screen) {
+    public diceRoll(mainScreen screen, Wallet wallet) {
+        this.game = new Game(wallet);
         diceRollReturnButton.addActionListener(e -> {
             screen.showHome();
         });
@@ -29,30 +32,35 @@ public class diceRoll extends JFrame{
                 }
             }
         });
+
+        diceRollBetEntry.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int bet = Integer.parseInt(diceRollBetEntry.getText().trim());
+                diceRollBetEntry.setText(game.makeValid(bet));
+            }
+        });
+
         diceRollBetSubmit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //check if bet amount is less than wallet
                 int betAmount = Integer.parseInt(diceRollBetEntry.getText());
-                int wallet = 100;
                 String selectedText = diceRollBetChoice.getSelectedItem().toString();
                 int bet = Integer.parseInt(selectedText);
 
-                wallet -= betAmount;
-
-                //TODO add correct wallet methods and also add correct wallet payouts etc and remove balance as bet is placed then give user the reward
-                if  (betAmount >= 0 && betAmount <= wallet) {
                     if (roll(bet)) {
-                        wallet += (betAmount * 2);
+                        wallet.addMoney(betAmount * 2);
+                    } else {
+                        wallet.subtractMoney(betAmount);
                     }
-                }
-                System.out.println(wallet);
+
+                System.out.println(wallet.getMoney());
             }
         });
     }
 
     public boolean roll(int bet) {
-        Random r = new Random(67);
         int r_roll = r.nextInt(6);
 
         if (bet == r_roll) {
