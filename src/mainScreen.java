@@ -15,6 +15,7 @@ public class mainScreen extends JFrame {
     private diceRoll diceRollForm;
     private roulette rouletteForm;
     private slots slotsForm;
+    private final Wallet wallet = new Wallet();
 
 
     public mainScreen() {
@@ -24,8 +25,8 @@ public class mainScreen extends JFrame {
         setSize(420, 420);
         setLocationRelativeTo(null);
 
-        coinTossForm = new coinToss(this);
-        diceRollForm = new diceRoll(this);
+        coinTossForm = new coinToss(this, wallet);
+        diceRollForm = new diceRoll(this);//need to send wallet to all of them so they know the amount of money it has
         rouletteForm = new roulette(this);
         slotsForm = new slots(this);
 

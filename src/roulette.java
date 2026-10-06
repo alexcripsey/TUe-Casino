@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class roulette {
+public class roulette extends JFrame {
     private JPanel rouletteMainPanel;
     private JComboBox rouletteBetChoice;
     private JButton rouletteBetSubmit;
