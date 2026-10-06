@@ -44,6 +44,26 @@ public class coinToss extends JFrame {
             }
         });
 
+        betSubmit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int betAmount = Integer.parseInt(betEntry.getText());
+                int selectedIndex = betChoice.getSelectedIndex();
+                if (toss(selectedIndex)) {
+                    wallet.addMoney(betAmount);
+                } else {
+                    wallet.subtractMoney(betAmount);
+                }
+                System.out.println(wallet.getMoney());
+            }
+        });
+    }
+
+    public boolean toss(int selectedText){
+        int r_toss = r.nextInt(2);
+        if (selectedText == r_toss) {
+            return true;
+        } else return false;
     }
 
     public JPanel getCoinTossPanel () {
