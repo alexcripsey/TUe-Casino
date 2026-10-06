@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.text.DocumentFilter;
 import java.awt.event.*;
 import java.util.*;
 
@@ -33,18 +32,18 @@ public class diceRoll {
         diceRollBetSubmit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //check if bet amount if less than wallet
+                //check if bet amount is less than wallet
                 int betAmount = Integer.parseInt(diceRollBetEntry.getText());
                 int wallet = 100;
                 String selectedText = diceRollBetChoice.getSelectedItem().toString();
                 int bet = Integer.parseInt(selectedText);
 
+                wallet -= betAmount;
+
                 //TODO add correct wallet methods and also add correct wallet payouts etc and remove balance as bet is placed then give user the reward
-                if  (betAmount >= 0 && betAmount < wallet) {
+                if  (betAmount >= 0 && betAmount <= wallet) {
                     if (roll(bet)) {
                         wallet += (betAmount * 2);
-                    } else {
-                        wallet -= betAmount;
                     }
                 }
                 System.out.println(wallet);
@@ -54,8 +53,9 @@ public class diceRoll {
 
     public boolean roll(int bet) {
         Random r = new Random(67);
+        int r_roll = r.nextInt(6);
 
-        if (bet == r.nextInt(6)) {
+        if (bet == r_roll) {
             return true;
         } else return false;
     }
