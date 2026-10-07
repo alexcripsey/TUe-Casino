@@ -46,16 +46,24 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="e8979" class="javax.swing.JTextField" binding="rouletteBetEntry">
+          <component id="e8979" class="javax.swing.JTextField" binding="betEntry">
             <constraints/>
-            <properties/>
+            <properties>
+              <text value=""/>
+            </properties>
           </component>
           <hspacer id="c5a30">
             <constraints/>
           </hspacer>
-          <component id="d52a" class="javax.swing.JComboBox" binding="rouletteBetChoice">
+          <component id="d52a" class="javax.swing.JComboBox" binding="betChoice">
             <constraints/>
-            <properties/>
+            <properties>
+              <model>
+                <item value="Red"/>
+                <item value="Black"/>
+                <item value="Green"/>
+              </model>
+            </properties>
           </component>
           <component id="9bf7f" class="javax.swing.JButton" binding="rouletteBetSubmit">
             <constraints/>
