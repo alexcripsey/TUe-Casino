@@ -19,12 +19,6 @@
               <text value="Roulette"/>
             </properties>
           </component>
-          <component id="befe6" class="javax.swing.JButton" binding="rouletteReturnButton">
-            <constraints border-constraint="West"/>
-            <properties>
-              <text value="Button"/>
-            </properties>
-          </component>
         </children>
       </grid>
       <grid id="75360" binding="rouletteCenterPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
@@ -49,6 +43,7 @@
           <component id="e8979" class="javax.swing.JTextField" binding="betEntry">
             <constraints/>
             <properties>
+              <columns value="5"/>
               <text value=""/>
             </properties>
           </component>
@@ -65,7 +60,23 @@
               </model>
             </properties>
           </component>
+          <component id="f3748" class="javax.swing.JComboBox" binding="evenOrOdd">
+            <constraints/>
+            <properties>
+              <model>
+                <item value="-"/>
+                <item value="Even"/>
+                <item value="Odd"/>
+              </model>
+            </properties>
+          </component>
           <component id="9bf7f" class="javax.swing.JButton" binding="rouletteBetSubmit">
+            <constraints/>
+            <properties>
+              <text value="Button"/>
+            </properties>
+          </component>
+          <component id="befe6" class="javax.swing.JButton" binding="rouletteReturnButton">
             <constraints/>
             <properties>
               <text value="Button"/>

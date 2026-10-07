@@ -16,6 +16,7 @@ public class roulette extends JFrame {
     private JLabel rouletteImage;
     private JTextField betEntry;
     private JButton rouletteReturnButton;
+    private JComboBox evenOrOdd;
     private final Random r = new Random();
     private final Game game;
 
@@ -43,19 +44,84 @@ public class roulette extends JFrame {
         });
 
 
-    }
-    public boolean spin() {
-        int r_spin = r.nextInt(33);
-        String[] color = new String[33];
-        for (int i = 0; i < color.length; i++) {
-            if (i == 0){
-                color[i] = "green";
-            } else if((i % 2 != 0 || i = 18) && i != 29) {
-                    color[i] = "red";
-            } else if ((i % 2 == 0 || i = 29) && i != 18){
-                color[i] = "black";
+        rouletteBetSubmit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //probably have some problems when nothing is put in betAmount
+                int bet = Integer.parseInt(betEntry.getText());
+                betEntry.setText(game.makeValid(bet));
+                int betAmount = Integer.parseInt(betEntry.getText());
+                String redBlackGreen = betChoice.getSelectedItem().toString();
+                //cant bet on even or odd if green is selected
+                if (redBlackGreen.equals("Green")){
+                    evenOrOdd.setSelectedIndex(0);
+                }
+                String evenOdd = evenOrOdd.getSelectedItem().toString();
+
+                if(spin(redBlackGreen, evenOdd)) {
+                    wallet.money -= betAmount;
+                    int moneyWon = won(redBlackGreen, evenOdd, betAmount);
+                    wallet.money += moneyWon;
+                }
+                System.out.println(wallet.getMoney());
+
             }
+        });
+        betChoice.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
+    public boolean spin(String redBlackGreen, String evenOdd) {
+
+        int r_spin = r.nextInt(37);
+        String[] color = {
+                "Green", "Red", "Black", "Red", "Black", "Red",
+                "Black", "Red", "Black", "Red", "Black", "Black",
+                "Red", "Black", "Red", "Black", "Red", "Red",
+                "Black", "Red", "Black", "Red", "Black", "Red",
+                "Black", "Red", "Black", "Red", "Black", "Black",
+                "Red", "Black", "Red", "Black", "Red", "Black",
+                "Red"
+        };
+
+        if(color[r_spin].equals(redBlackGreen) &&
+          (redBlackGreen.equals("Red") || redBlackGreen.equals("Black") &&
+          evenOdd.equals("-"))) {
+            //won red or black(2x)
+            return true;
+        } else if (color[r_spin].equals(redBlackGreen) && redBlackGreen.equals("Green")) {
+            //won green(36x)
+            return true;
+        }else if ((evenOdd.equals("Even") && r_spin % 2 == 0) &&
+                  color[r_spin].equals(redBlackGreen) &&
+                  (redBlackGreen.equals("Red") || redBlackGreen.equals("Black"))) {
+            //won color and even\odd(4x)
+            return true;
+        } else if ((evenOdd.equals("Odd") && r_spin % 2 != 0) &&
+                color[r_spin].equals(redBlackGreen) &&
+                (redBlackGreen.equals("Red") || redBlackGreen.equals("Black"))) {
+                    //won color and even\odd(4x)
+                    return true;
+        } else return false;
+    }
+
+    public int won(String redBlackGreen, String evenOdd, int betAmount) {
+        int n = 0;
+        if ((redBlackGreen.equals("Red") || redBlackGreen.equals("Black")) && evenOdd.equals("-")) {
+            //won color
+             n += betAmount * 2;
+        } else if (redBlackGreen.equals("Green")) {
+            //won green
+             n += betAmount * 36;
+        } else if ((redBlackGreen.equals("Red") || redBlackGreen.equals("Black")) &&
+                (evenOdd.equals("Even") || evenOdd.equals("Odd"))) {
+            //won color and even\odd
+             n += betAmount * 4;
         }
+        return n;
     }
 
     public JPanel getRouletteMainPanel() {
