@@ -55,14 +55,13 @@ public class mainScreen extends JFrame {
 
     private void showPanel(JPanel newPanel) {
         if (newPanel == null) {
-            System.out.println("Error: The panel passed to showPanel is NULL");
             return;
         }
 
         contentPanel.removeAll();
-        contentPanel.setLayout(new BorderLayout()); // Ensures new panel stretches to fill area
+        contentPanel.setLayout(new BorderLayout());
         contentPanel.add(newPanel, BorderLayout.CENTER);
-        contentPanel.revalidate(); // Re-calculates layout
-        contentPanel.repaint();    // Redraws the frame
+        contentPanel.revalidate();
+        contentPanel.repaint();
     }
 }
