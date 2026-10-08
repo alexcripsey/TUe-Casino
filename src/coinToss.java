@@ -38,7 +38,6 @@ public class coinToss extends JFrame {
         betEntry.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 int bet = Integer.parseInt(betEntry.getText().trim());
                 betEntry.setText(game.makeValid(bet));
             }

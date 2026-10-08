@@ -53,6 +53,7 @@
           <component id="13702" class="javax.swing.JTextField" binding="betEntry">
             <constraints/>
             <properties>
+              <columns value="5"/>
               <text value=""/>
             </properties>
           </component>
