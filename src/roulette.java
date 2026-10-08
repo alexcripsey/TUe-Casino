@@ -62,14 +62,10 @@ public class roulette extends JFrame {
                     wallet.money -= betAmount;
                     int moneyWon = won(redBlackGreen, evenOdd, betAmount);
                     wallet.money += moneyWon;
+                } else {
+                    wallet.money -= betAmount;
                 }
                 System.out.println(wallet.getMoney());
-
-            }
-        });
-        betChoice.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
             }
         });
@@ -86,9 +82,11 @@ public class roulette extends JFrame {
                 "Red", "Black", "Red", "Black", "Red", "Black",
                 "Red"
         };
+        System.out.println(r_spin);
+        System.out.println(color[r_spin]);
 
         if(color[r_spin].equals(redBlackGreen) &&
-          (redBlackGreen.equals("Red") || redBlackGreen.equals("Black") &&
+          ((redBlackGreen.equals("Red") || redBlackGreen.equals("Black")) &&
           evenOdd.equals("-"))) {
             //won red or black(2x)
             return true;
