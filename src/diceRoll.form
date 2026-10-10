@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="diceRoll">
   <grid id="27dc6" binding="diceRollMainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="588" height="400"/>
+      <xy x="20" y="20" width="589" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -46,7 +46,7 @@
           <component id="22cbf" class="javax.swing.JLabel">
             <constraints/>
             <properties>
-              <text value="Enter bet here:"/>
+              <text value="Place your bet:"/>
             </properties>
           </component>
           <component id="d42e4" class="javax.swing.JTextField" binding="diceRollBetEntry">
@@ -81,7 +81,7 @@
           <component id="5fdf0" class="javax.swing.JButton" binding="diceRollReturnButton">
             <constraints/>
             <properties>
-              <text value="Button"/>
+              <text value="Return"/>
             </properties>
           </component>
         </children>

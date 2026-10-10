@@ -33,6 +33,12 @@
               <text value="Roulette Image"/>
             </properties>
           </component>
+          <component id="befe6" class="javax.swing.JButton" binding="rouletteReturnButton">
+            <constraints border-constraint="East"/>
+            <properties>
+              <text value="Return"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <grid id="6690a" binding="rouletteBottomPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
@@ -40,6 +46,12 @@
         <properties/>
         <border type="none"/>
         <children>
+          <component id="1344d" class="javax.swing.JLabel">
+            <constraints/>
+            <properties>
+              <text value="Place your bet:"/>
+            </properties>
+          </component>
           <component id="e8979" class="javax.swing.JTextField" binding="betEntry">
             <constraints/>
             <properties>
@@ -71,12 +83,6 @@
             </properties>
           </component>
           <component id="9bf7f" class="javax.swing.JButton" binding="rouletteBetSubmit">
-            <constraints/>
-            <properties>
-              <text value="Button"/>
-            </properties>
-          </component>
-          <component id="befe6" class="javax.swing.JButton" binding="rouletteReturnButton">
             <constraints/>
             <properties>
               <text value="Button"/>

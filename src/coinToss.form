@@ -29,13 +29,6 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="eab1" class="javax.swing.JButton" binding="coinTossReturnButton">
-            <constraints border-constraint="West"/>
-            <properties>
-              <horizontalAlignment value="0"/>
-              <text value="Return"/>
-            </properties>
-          </component>
           <component id="44493" class="javax.swing.JLabel" binding="coinTossTitleLabel">
             <constraints border-constraint="Center"/>
             <properties>
@@ -50,6 +43,12 @@
         <properties/>
         <border type="none"/>
         <children>
+          <component id="99760" class="javax.swing.JLabel">
+            <constraints/>
+            <properties>
+              <text value="Place your bet:"/>
+            </properties>
+          </component>
           <component id="13702" class="javax.swing.JTextField" binding="betEntry">
             <constraints/>
             <properties>
@@ -73,6 +72,13 @@
             <constraints/>
             <properties>
               <text value="Button"/>
+            </properties>
+          </component>
+          <component id="eab1" class="javax.swing.JButton" binding="coinTossReturnButton">
+            <constraints/>
+            <properties>
+              <horizontalAlignment value="0"/>
+              <text value="Return"/>
             </properties>
           </component>
         </children>

@@ -19,12 +19,6 @@
               <text value="Slots Machine"/>
             </properties>
           </component>
-          <component id="6993a" class="javax.swing.JButton" binding="slotsReturnButtonlimit">
-            <constraints border-constraint="West"/>
-            <properties>
-              <text value="Button"/>
-            </properties>
-          </component>
         </children>
       </grid>
       <grid id="d8118" binding="slotBottomPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
@@ -32,6 +26,12 @@
         <properties/>
         <border type="none"/>
         <children>
+          <component id="aa01" class="javax.swing.JLabel">
+            <constraints/>
+            <properties>
+              <text value="Place your bet:"/>
+            </properties>
+          </component>
           <component id="c5b3c" class="javax.swing.JTextField" binding="slotsBetEntry">
             <constraints/>
             <properties/>
@@ -46,7 +46,13 @@
           <component id="521c8" class="javax.swing.JButton" binding="slotsBetSubmit">
             <constraints/>
             <properties>
-              <text value="Button"/>
+              <text value="Pull"/>
+            </properties>
+          </component>
+          <component id="6993a" class="javax.swing.JButton" binding="slotsReturnButtonlimit">
+            <constraints/>
+            <properties>
+              <text value="Return"/>
             </properties>
           </component>
         </children>
