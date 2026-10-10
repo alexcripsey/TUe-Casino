@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="roulette">
   <grid id="27dc6" binding="rouletteMainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="535" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -31,12 +31,6 @@
             <properties>
               <horizontalAlignment value="0"/>
               <text value="Roulette Image"/>
-            </properties>
-          </component>
-          <component id="befe6" class="javax.swing.JButton" binding="rouletteReturnButton">
-            <constraints border-constraint="East"/>
-            <properties>
-              <text value="Return"/>
             </properties>
           </component>
         </children>
@@ -86,6 +80,12 @@
             <constraints/>
             <properties>
               <text value="Button"/>
+            </properties>
+          </component>
+          <component id="befe6" class="javax.swing.JButton" binding="rouletteReturnButton">
+            <constraints/>
+            <properties>
+              <text value="Return"/>
             </properties>
           </component>
         </children>

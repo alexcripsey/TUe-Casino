@@ -16,6 +16,9 @@ public class mainScreen extends JFrame {
     private roulette rouletteForm;
     private slots slotsForm;
     private final Wallet wallet = new Wallet();
+    private JLabel popUp;
+    private JLabel amountOfMoney;
+    private final Quotes quotes = new Quotes();
 
 
     public mainScreen() {
@@ -46,7 +49,17 @@ public class mainScreen extends JFrame {
             showPanel(rouletteForm.getRouletteMainPanel());
         });
 
+        //Need to atatch these to all of the other forms
+        javax.swing.Timer timer = new javax.swing.Timer(5000, e -> {
+            popUp.setText(quotes.getQuote());
+        });
 
+        timer.start();
+        javax.swing.Timer timer1 = new javax.swing.Timer(5000, e -> {
+            amountOfMoney.setText(wallet.moneyToString());
+        });
+
+        timer1.start();
     }
 
     public void showHome() {

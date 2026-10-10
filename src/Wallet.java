@@ -11,4 +11,9 @@ public class Wallet {
     public void subtractMoney(int n){
         money-= n;
     }
+
+    public String moneyToString(){
+        String amount = String.valueOf(getMoney());
+        return amount;
+    }
 }
