@@ -28,7 +28,7 @@ public class mainScreen extends JFrame {
         coinTossForm = new coinToss(this, wallet);
         diceRollForm = new diceRoll(this, wallet);
         rouletteForm = new roulette(this, wallet);
-        slotsForm = new slots(this);
+        slotsForm = new slots(this, wallet);
 
         diceRollButton.addActionListener(e -> {
             showPanel(diceRollForm.getDiceRollPanel());
