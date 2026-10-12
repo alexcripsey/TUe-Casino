@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Map;
 import java.util.Random;
 
 public class slots extends JFrame {
@@ -17,6 +18,13 @@ public class slots extends JFrame {
     private JButton slotsReturnButtonlimit;
     private final Game game;
     private final Random r = new Random();
+    private static final Map<Integer, Integer> weights = Map.of(
+            0, 40,
+            1, 25,
+            2, 18,
+            3, 12,
+            4, 5
+    );
 
     public slots(mainScreen screen, Wallet wallet) {
         this.game = new Game(wallet);
@@ -64,9 +72,9 @@ public class slots extends JFrame {
     }
 
     public int spin() {
-        int slot1 = r.nextInt(5);
-        int slot2 = r.nextInt(5);
-        int slot3 = r.nextInt(5);
+        int slot1 = game.weightedRandom(weights);
+        int slot2 = game.weightedRandom(weights);
+        int slot3 = game.weightedRandom(weights);
 
         if (slot1 == 0 && slot2 == 0 && slot3 == 0) {
             return 25;
