@@ -15,9 +15,13 @@ public class mainScreen extends JFrame {
     private diceRoll diceRollForm;
     private roulette rouletteForm;
     private slots slotsForm;
+    private statScreen statForm;
+    private debtScreen debtForm;
     private final Wallet wallet = new Wallet();
     private JLabel popUp;
     private JLabel amountOfMoney;
+    private JButton statButton;
+    private JButton debtButton;
     private final Quotes quotes = new Quotes();
 
 
@@ -32,6 +36,9 @@ public class mainScreen extends JFrame {
         diceRollForm = new diceRoll(this, wallet);
         rouletteForm = new roulette(this, wallet);
         slotsForm = new slots(this, wallet);
+        statForm = new statScreen(this, wallet);
+        debtForm = new debtScreen(this, wallet);
+
 
         diceRollButton.addActionListener(e -> {
             showPanel(diceRollForm.getDiceRollPanel());
@@ -47,6 +54,14 @@ public class mainScreen extends JFrame {
 
         rouletteButton.addActionListener(e -> {
             showPanel(rouletteForm.getRouletteMainPanel());
+        });
+
+        statButton.addActionListener(e -> {
+            showPanel(statForm.getStatMainPanel());
+        });
+
+        debtButton.addActionListener(e -> {
+            showPanel(debtForm.getDebtMainPanel());
         });
 
         //Need to atatch these to all of the other forms
