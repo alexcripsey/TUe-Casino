@@ -49,13 +49,13 @@
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
           </vspacer>
-          <component id="3eca1" class="javax.swing.JLabel">
+          <component id="3eca1" class="javax.swing.JLabel" binding="walletBalance">
             <constraints>
               <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="e688e" class="javax.swing.JLabel">
@@ -67,13 +67,13 @@
               <text value="Total Rounds Played"/>
             </properties>
           </component>
-          <component id="11766" class="javax.swing.JLabel">
+          <component id="11766" class="javax.swing.JLabel" binding="roundsPlayed">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <text value=""/>
             </properties>
           </component>
           <vspacer id="69c3c">
@@ -91,13 +91,13 @@
               <text value="Wins:"/>
             </properties>
           </component>
-          <component id="30b74" class="javax.swing.JLabel">
+          <component id="30b74" class="javax.swing.JLabel" binding="wins">
             <constraints>
               <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <text value=""/>
             </properties>
           </component>
           <vspacer id="65bac">
@@ -115,13 +115,13 @@
               <text value="Losses:"/>
             </properties>
           </component>
-          <component id="9e4ae" class="javax.swing.JLabel">
+          <component id="9e4ae" class="javax.swing.JLabel" binding="losses">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <text value=""/>
             </properties>
           </component>
           <vspacer id="50b73">
@@ -139,13 +139,13 @@
               <text value="Win Rate:"/>
             </properties>
           </component>
-          <component id="b4d49" class="javax.swing.JLabel">
+          <component id="b4d49" class="javax.swing.JLabel" binding="winRate">
             <constraints>
               <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <text value=""/>
             </properties>
           </component>
           <vspacer id="c691">
@@ -160,7 +160,7 @@
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Rounds Played"/>
+              <text value="Dont know yet"/>
             </properties>
           </component>
           <component id="27a9a" class="javax.swing.JLabel">
@@ -169,7 +169,7 @@
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <text value=""/>
             </properties>
           </component>
           <vspacer id="67709">
@@ -187,13 +187,13 @@
               <text value="Total Credits Wagered"/>
             </properties>
           </component>
-          <component id="2f73" class="javax.swing.JLabel">
+          <component id="2f73" class="javax.swing.JLabel" binding="creditsWagered">
             <constraints>
               <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <text value=""/>
             </properties>
           </component>
           <vspacer id="8ae3d">
@@ -211,13 +211,13 @@
               <text value="Total Credits Won:"/>
             </properties>
           </component>
-          <component id="dfc36" class="javax.swing.JLabel">
+          <component id="dfc36" class="javax.swing.JLabel" binding="creditsWon">
             <constraints>
               <grid row="15" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <text value=""/>
             </properties>
           </component>
           <vspacer id="bfa2e">
@@ -256,16 +256,16 @@
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Largest Win:"/>
+              <text value="All ins:"/>
             </properties>
           </component>
-          <component id="fc0cc" class="javax.swing.JLabel">
+          <component id="fc0cc" class="javax.swing.JLabel" binding="allIns">
             <constraints>
               <grid row="19" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <text value=""/>
             </properties>
           </component>
           <vspacer id="6178e">

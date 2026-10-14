@@ -46,21 +46,35 @@ public class coinToss extends JFrame {
         betSubmit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int bet = Integer.parseInt(betEntry.getText().trim());
+                betEntry.setText(game.makeValid(bet));
                 int betAmount = Integer.parseInt(betEntry.getText());
+
+                if (betAmount == wallet.getMoney()) {
+                    game.allIns++;
+                }
+
+                game.creditsWagered+= betAmount;
+
                 int selectedIndex = betChoice.getSelectedIndex();
+
                 if (toss(selectedIndex)) {
                     wallet.addMoney(betAmount);
+                    game.wins++;
+                    game.moneyWon+= betAmount;
                 } else {
                     wallet.subtractMoney(betAmount);
+                    game.losses++;
                 }
-                System.out.println(wallet.getMoney());
+
+                game.roundsPlayed++;
             }
         });
     }
 
-    public boolean toss(int selectedText){
+    public boolean toss(int selectedIndex){
         int r_toss = r.nextInt(2);
-        if (selectedText == r_toss) {
+        if (selectedIndex == r_toss) {
             return true;
         } else return false;
     }

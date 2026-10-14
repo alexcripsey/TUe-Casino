@@ -47,10 +47,13 @@ public class roulette extends JFrame {
         rouletteBetSubmit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //probably have some problems when nothing is put in betAmount
                 int bet = Integer.parseInt(betEntry.getText());
                 betEntry.setText(game.makeValid(bet));
                 int betAmount = Integer.parseInt(betEntry.getText());
+                if (betAmount == wallet.getMoney()){
+                    game.allIns++;
+                }
+
                 String redBlackGreen = betChoice.getSelectedItem().toString();
                 //cant bet on even or odd if green is selected
                 if (redBlackGreen.equals("Green")){
@@ -58,15 +61,20 @@ public class roulette extends JFrame {
                 }
                 String evenOdd = evenOrOdd.getSelectedItem().toString();
 
+                game.creditsWagered+= betAmount;
+
                 if(spin(redBlackGreen, evenOdd)) {
                     wallet.money -= betAmount;
                     int moneyWon = won(redBlackGreen, evenOdd, betAmount);
                     wallet.money += moneyWon;
+                    game.wins++;
+                    game.moneyWon+= moneyWon;
                 } else {
                     wallet.money -= betAmount;
+                    game.losses++;
                 }
-                System.out.println(wallet.getMoney());
 
+                game.roundsPlayed++;
             }
         });
     }

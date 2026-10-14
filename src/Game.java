@@ -4,6 +4,14 @@ import java.util.Random;
 public class Game {
     private final Wallet wallet;
     private final Random r = new Random();
+    public static int wins = 0;
+    public static int losses = 0;
+    public static int roundsPlayed = 0;
+    public int winRate;
+    public static int creditsWagered = 0;
+    public static int allIns = 0;
+    public static int moneyWon = 0;
+
 
     public Game (Wallet wallet) {
         this.wallet = wallet;
@@ -44,5 +52,10 @@ public class Game {
             }
         }
         return selectedItem;
+    }
+
+    public int getWinRate() throws ArithmeticException {
+        this.winRate = wins / roundsPlayed;
+        return winRate;
     }
 }

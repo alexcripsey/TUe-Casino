@@ -47,14 +47,20 @@ public class diceRoll extends JFrame{
                 //check if bet amount is less than wallet
                 int betAmount = Integer.parseInt(diceRollBetEntry.getText());
                 int selectedIndex = diceRollBetChoice.getSelectedIndex();
+                if(betAmount == wallet.getMoney()) {
+                    game.allIns++;
+                }
+                game.creditsWagered+= betAmount;
 
                     if (roll(selectedIndex)) {
-                        wallet.addMoney(betAmount * 2);
+                        wallet.addMoney(betAmount * 5);
+                        game.wins++;
+                        game.moneyWon += betAmount * 5;
                     } else {
                         wallet.subtractMoney(betAmount);
+                        game.losses++;
                     }
-
-                System.out.println(wallet.getMoney());
+                    game.roundsPlayed++;
             }
         });
     }

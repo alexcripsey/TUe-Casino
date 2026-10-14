@@ -55,18 +55,30 @@ public class slots extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //check if bet amount is less than wallet
+                int bet = Integer.parseInt(slotsBetEntry.getText().trim());
+                slotsBetEntry.setText(game.makeValid(bet));
                 int betAmount = Integer.parseInt(slotsBetEntry.getText());
                 int selectedIndex = slotsBetChoice.getSelectedIndex();
+
+                game.creditsWagered++;
+
+                if (betAmount == wallet.getMoney()) {
+                    game.allIns++;
+                }
 
                 int outcome = spin();
 
                 if (outcome != 0) {
                     wallet.addMoney(betAmount * outcome);
+                    game.wins++;
+                    game.moneyWon+= (betAmount * outcome) - betAmount;
+
                 } else {
                     wallet.subtractMoney(betAmount);
+                    game.losses++;
                 }
+                game.roundsPlayed++;
 
-                System.out.println(wallet.getMoney());
             }
         });
     }
