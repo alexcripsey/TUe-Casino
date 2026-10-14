@@ -71,16 +71,23 @@ public class debtScreen {
         paymentEntry.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int bet = Integer.parseInt(paymentEntry.getText().trim());
-                paymentEntry.setText(game.makeValid(bet));
+                int amount = Integer.parseInt(paymentEntry.getText().trim());
+                paymentEntry.setText(game.makeValid(amount));
             }
         });
         debtButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int amount = Integer.parseInt(paymentEntry.getText().trim());
+                paymentEntry.setText(game.makeValid(amount));
+                int amount1 = Integer.parseInt(paymentEntry.getText().trim());
+                if (amount1 > debt.getDebt() * -1){
+                    paymentEntry.setText(String.valueOf(debt.getDebt() * -1));
+                }
                 int payment = Integer.parseInt(paymentEntry.getText());
-                debt.payDebt(payment);
-
+                if (debt.getDebt() != 0) {
+                    debt.payDebt(payment);
+                }
             }
         });
     }

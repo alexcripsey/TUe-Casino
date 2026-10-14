@@ -7,7 +7,7 @@ public class Game {
     public static int wins = 0;
     public static int losses = 0;
     public static int roundsPlayed = 0;
-    public int winRate;
+    public double winRate;
     public static int creditsWagered = 0;
     public static int allIns = 0;
     public static int moneyWon = 0;
@@ -53,9 +53,16 @@ public class Game {
         }
         return selectedItem;
     }
+    public double getWins(){
+        double win = this.wins;
+        return win;
+    }
 
-    public int getWinRate() throws ArithmeticException {
-        this.winRate = wins / roundsPlayed;
-        return winRate;
+    public void getWinRate() {
+        try {
+            this.winRate = getWins() / roundsPlayed;
+        } catch (ArithmeticException e) {
+            this.winRate = 1;
+        }
     }
 }

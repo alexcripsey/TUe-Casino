@@ -39,7 +39,7 @@ public class mainScreen extends JFrame {
         diceRollForm = new diceRoll(this, wallet);
         rouletteForm = new roulette(this, wallet);
         slotsForm = new slots(this, wallet);
-        statForm = new statScreen(this, wallet);
+        statForm = new statScreen(this, wallet, debt);
         debtForm = new debtScreen(this, wallet, debt);
 
 
@@ -80,7 +80,7 @@ public class mainScreen extends JFrame {
         timer1.start();
 
         javax.swing.Timer timer2 = new javax.swing.Timer(100, e -> {
-            amountOfDebt.setText("-" + debt.debtToString());
+            amountOfDebt.setText(debt.debtToString());
         });
         timer2.start();
 

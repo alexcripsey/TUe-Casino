@@ -35,16 +35,13 @@
           <component id="c5b3c" class="javax.swing.JTextField" binding="slotsBetEntry">
             <constraints/>
             <properties>
+              <columns value="5"/>
               <text value=""/>
             </properties>
           </component>
           <hspacer id="a7f5e">
             <constraints/>
           </hspacer>
-          <component id="dbab8" class="javax.swing.JComboBox" binding="slotsBetChoice">
-            <constraints/>
-            <properties/>
-          </component>
           <component id="521c8" class="javax.swing.JButton" binding="slotsBetSubmit">
             <constraints/>
             <properties>

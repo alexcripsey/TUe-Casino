@@ -15,9 +15,10 @@ public class statScreen {
     private JLabel creditsWagered;
     private JLabel creditsWon;
     private JLabel allIns;
+    private JLabel balance;
     private final Game game;
 
-    public statScreen(mainScreen screen, Wallet wallet) {
+    public statScreen(mainScreen screen, Wallet wallet, Debt debt) {
         this.game = new Game(wallet);
         statScreenReturnButton.addActionListener(e -> {
             screen.showHome();
@@ -45,7 +46,7 @@ public class statScreen {
         timer3.start();
 
         javax.swing.Timer timer4 = new javax.swing.Timer(100, e -> {
-            winRate.setText(String.valueOf(game.getWinRate()));
+            winRate.setText(String.valueOf(game.winRate));
         });
         timer4.start();
 
@@ -63,6 +64,11 @@ public class statScreen {
             allIns.setText(String.valueOf(game.allIns));
         });
         timer7.start();
+
+        javax.swing.Timer timer8 = new javax.swing.Timer(100, e -> {
+            balance.setText(String.valueOf( wallet.getMoney() + debt.getDebt()) + "$");
+        });
+        timer8.start();
     }
 
     public JPanel getStatMainPanel() {
