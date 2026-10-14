@@ -3,6 +3,7 @@ import java.awt.*;
 
 
 public class mainScreen extends JFrame {
+    private final String imagePath = "casino_bg.png";
     private JPanel mainPanel;
     private JPanel coinToss;
     private JButton diceRollButton;
@@ -41,6 +42,8 @@ public class mainScreen extends JFrame {
         statForm = new statScreen(this, wallet);
         debtForm = new debtScreen(this, wallet, debt);
 
+
+        showHome();
 
         diceRollButton.addActionListener(e -> {
             showPanel(diceRollForm.getDiceRollPanel());
@@ -93,10 +96,50 @@ public class mainScreen extends JFrame {
             return;
         }
 
+        newPanel.setOpaque(false);
         contentPanel.removeAll();
         contentPanel.setLayout(new BorderLayout());
         contentPanel.add(newPanel, BorderLayout.CENTER);
         contentPanel.revalidate();
         contentPanel.repaint();
+    }
+
+    private void createUIComponents() {
+        contentPanel = new ImagePanel(imagePath);
+    }
+
+    private static class ImagePanel extends JPanel {
+        private Image image;
+
+        public ImagePanel(String fileName) {
+            setOpaque(false);
+            try {
+                java.net.URL imgUrl = getClass().getResource("/" + fileName);
+                if (imgUrl == null) {
+                    imgUrl = getClass().getResource(fileName);
+                }
+
+                if (imgUrl != null) {
+                    image = javax.imageio.ImageIO.read(imgUrl);
+
+                    if (image == null) {
+                        image = Toolkit.getDefaultToolkit().createImage(imgUrl);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            if (image != null) {
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            } else {
+                g.setColor(Color.RED);
+                g.fillRect(0, 0, getWidth(), getHeight());
+            }
+        }
     }
 }
