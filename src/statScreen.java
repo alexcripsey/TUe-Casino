@@ -16,6 +16,7 @@ public class statScreen {
     private JLabel creditsWon;
     private JLabel allIns;
     private JLabel balance;
+    private JLabel moneyLost;
     private final Game game;
 
     public statScreen(mainScreen screen, Wallet wallet, Debt debt) {
@@ -23,52 +24,21 @@ public class statScreen {
         statScreenReturnButton.addActionListener(e -> {
             screen.showHome();
         });
-
-
-        javax.swing.Timer timer = new javax.swing.Timer(100, e -> {
+        javax.swing.Timer statsTimer = new javax.swing.Timer(100, e -> {
             walletBalance.setText(wallet.moneyToString() + "$");
-        });
-        timer.start();
-
-        javax.swing.Timer timer1 = new javax.swing.Timer(100, e -> {
             roundsPlayed.setText(String.valueOf(game.roundsPlayed));
-        });
-        timer1.start();
-
-        javax.swing.Timer timer2 = new javax.swing.Timer(100, e -> {
             wins.setText(String.valueOf(game.wins));
-        });
-        timer2.start();
-
-        javax.swing.Timer timer3 = new javax.swing.Timer(100, e -> {
             losses.setText(String.valueOf(game.losses));
-        });
-        timer3.start();
 
-        javax.swing.Timer timer4 = new javax.swing.Timer(100, e -> {
-            winRate.setText(String.valueOf(game.winRate));
-        });
-        timer4.start();
+            winRate.setText(String.format("%.1f%%", game.getWinRate() * 100));
 
-        javax.swing.Timer timer5 = new javax.swing.Timer(100, e -> {
-            creditsWagered.setText(String.valueOf(game.creditsWagered) + "$");
-        });
-        timer5.start();
-
-        javax.swing.Timer timer6 = new javax.swing.Timer(100, e -> {
-           creditsWon.setText(String.valueOf(game.moneyWon) + "$");
-        });
-        timer6.start();
-
-        javax.swing.Timer timer7 = new javax.swing.Timer(100, e -> {
+            creditsWagered.setText(game.creditsWagered + "$");
+            creditsWon.setText(game.moneyWon + "$");
             allIns.setText(String.valueOf(game.allIns));
+            balance.setText((wallet.getMoney() + debt.getDebt()) + "$");
+            moneyLost.setText(String.valueOf(game.moneyLost) + "$");
         });
-        timer7.start();
-
-        javax.swing.Timer timer8 = new javax.swing.Timer(100, e -> {
-            balance.setText(String.valueOf( wallet.getMoney() + debt.getDebt()) + "$");
-        });
-        timer8.start();
+        statsTimer.start();
     }
 
     public JPanel getStatMainPanel() {

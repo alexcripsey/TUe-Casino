@@ -9,7 +9,6 @@ import java.util.Random;
 public class slots extends JFrame {
     private JPanel slotsMainPanel;
     private JTextField slotsBetEntry;
-    private JComboBox slotsBetChoice;
     private JButton slotsBetSubmit;
     private JPanel slotsTopPanel;
     private JPanel slotBottomPanel;
@@ -54,13 +53,11 @@ public class slots extends JFrame {
         slotsBetSubmit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //check if bet amount is less than wallet
                 int bet = Integer.parseInt(slotsBetEntry.getText().trim());
                 slotsBetEntry.setText(game.makeValid(bet));
                 int betAmount = Integer.parseInt(slotsBetEntry.getText());
-                int selectedIndex = slotsBetChoice.getSelectedIndex();
 
-                game.creditsWagered++;
+                game.creditsWagered+= betAmount;
 
                 if (betAmount == wallet.getMoney()) {
                     game.allIns++;
@@ -71,11 +68,12 @@ public class slots extends JFrame {
                 if (outcome != 0) {
                     wallet.addMoney(betAmount * outcome);
                     game.wins++;
-                    game.moneyWon+= (betAmount * outcome) - betAmount;
+                    game.moneyWon+= betAmount * outcome;
 
                 } else {
                     wallet.subtractMoney(betAmount);
                     game.losses++;
+                    game.moneyLost+= betAmount;
                 }
                 game.roundsPlayed++;
 

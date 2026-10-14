@@ -75,7 +75,7 @@
           <component id="a1c58" class="javax.swing.JButton" binding="diceRollBetSubmit">
             <constraints/>
             <properties>
-              <text value="Button"/>
+              <text value="Roll"/>
             </properties>
           </component>
           <component id="5fdf0" class="javax.swing.JButton" binding="diceRollReturnButton">

@@ -49,12 +49,10 @@ public class coinToss extends JFrame {
                 int bet = Integer.parseInt(betEntry.getText().trim());
                 betEntry.setText(game.makeValid(bet));
                 int betAmount = Integer.parseInt(betEntry.getText());
-
+                game.creditsWagered+= betAmount;
                 if (betAmount == wallet.getMoney()) {
                     game.allIns++;
                 }
-
-                game.creditsWagered+= betAmount;
 
                 int selectedIndex = betChoice.getSelectedIndex();
 

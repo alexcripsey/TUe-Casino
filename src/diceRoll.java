@@ -44,21 +44,23 @@ public class diceRoll extends JFrame{
         diceRollBetSubmit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //check if bet amount is less than wallet
+                int bet = Integer.parseInt(diceRollBetEntry.getText().trim());
+                diceRollBetEntry.setText(game.makeValid(bet));
                 int betAmount = Integer.parseInt(diceRollBetEntry.getText());
                 int selectedIndex = diceRollBetChoice.getSelectedIndex();
                 if(betAmount == wallet.getMoney()) {
                     game.allIns++;
                 }
                 game.creditsWagered+= betAmount;
+                wallet.subtractMoney(betAmount);
 
                     if (roll(selectedIndex)) {
-                        wallet.addMoney(betAmount * 5);
+                        wallet.addMoney(betAmount * 6);
                         game.wins++;
-                        game.moneyWon += betAmount * 5;
+                        game.moneyWon += betAmount * 6;
                     } else {
-                        wallet.subtractMoney(betAmount);
                         game.losses++;
+                        game.moneyLost += betAmount;
                     }
                     game.roundsPlayed++;
             }

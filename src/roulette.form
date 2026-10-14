@@ -79,7 +79,7 @@
           <component id="9bf7f" class="javax.swing.JButton" binding="rouletteBetSubmit">
             <constraints/>
             <properties>
-              <text value="Button"/>
+              <text value="Spin"/>
             </properties>
           </component>
           <component id="befe6" class="javax.swing.JButton" binding="rouletteReturnButton">

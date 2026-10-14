@@ -64,14 +64,15 @@ public class roulette extends JFrame {
                 game.creditsWagered+= betAmount;
 
                 if(spin(redBlackGreen, evenOdd)) {
-                    wallet.money -= betAmount;
+                    wallet.subtractMoney(betAmount);
                     int moneyWon = won(redBlackGreen, evenOdd, betAmount);
-                    wallet.money += moneyWon;
+                    wallet.addMoney(moneyWon);
                     game.wins++;
                     game.moneyWon+= moneyWon;
                 } else {
-                    wallet.money -= betAmount;
+                    wallet.subtractMoney(betAmount);
                     game.losses++;
+                    game.moneyLost += betAmount;
                 }
 
                 game.roundsPlayed++;

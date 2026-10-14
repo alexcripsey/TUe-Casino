@@ -76,15 +76,10 @@ public class mainScreen extends JFrame {
 
         javax.swing.Timer timer1 = new javax.swing.Timer(100, e -> {
             amountOfMoney.setText(wallet.moneyToString() + "$");
+            amountOfDebt.setText(debt.debtToString());
+
         });
         timer1.start();
-
-        javax.swing.Timer timer2 = new javax.swing.Timer(100, e -> {
-            amountOfDebt.setText(debt.debtToString());
-        });
-        timer2.start();
-
-
     }
 
     public void showHome() {

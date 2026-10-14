@@ -7,10 +7,10 @@ public class Game {
     public static int wins = 0;
     public static int losses = 0;
     public static int roundsPlayed = 0;
-    public double winRate;
     public static int creditsWagered = 0;
     public static int allIns = 0;
     public static int moneyWon = 0;
+    public static int moneyLost = 0;
 
 
     public Game (Wallet wallet) {
@@ -57,12 +57,16 @@ public class Game {
         double win = this.wins;
         return win;
     }
-
-    public void getWinRate() {
-        try {
-            this.winRate = getWins() / roundsPlayed;
-        } catch (ArithmeticException e) {
-            this.winRate = 1;
+    public double getRoundsPlayed(){
+        double rounds = this.roundsPlayed;
+        return rounds;
+    }
+    public double getWinRate() {
+        if (roundsPlayed == 0) {
+            return  0.0;
+        } else {
+            double n = getWins() / getRoundsPlayed();
+            return n;
         }
     }
 }

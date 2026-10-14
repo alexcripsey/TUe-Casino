@@ -25,7 +25,7 @@ public class debtScreen {
             screen.showHome();
         });
 
-        javax.swing.Timer timer = new javax.swing.Timer(20000, e -> {
+        javax.swing.Timer timer = new javax.swing.Timer(100, e -> {
             debtAmount.setText(debt.debtToString());
         });
         timer.start();
