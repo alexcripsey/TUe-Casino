@@ -71,7 +71,7 @@
           <component id="a26a4" class="javax.swing.JButton" binding="betSubmit">
             <constraints/>
             <properties>
-              <text value="Button"/>
+              <text value="Toss"/>
             </properties>
           </component>
           <component id="eab1" class="javax.swing.JButton" binding="coinTossReturnButton">

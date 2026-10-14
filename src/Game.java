@@ -10,7 +10,7 @@ public class Game {
     }
 
     public String makeValid(int bet) {
-        if (bet <= 0){
+        if (bet <= 0) {
             return "1";
         } else if (bet > wallet.getMoney()) {
             StringBuilder str = new StringBuilder();
@@ -22,10 +22,6 @@ public class Game {
             str.append(bet);
             return str.toString();
         }
-    }
-
-    public void isValid(){
-
     }
 
     public int weightedRandom(Map<Integer, Integer> weights) {

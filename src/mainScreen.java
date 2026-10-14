@@ -18,10 +18,12 @@ public class mainScreen extends JFrame {
     private statScreen statForm;
     private debtScreen debtForm;
     private final Wallet wallet = new Wallet();
+    private final Debt debt = new Debt(wallet);
     private JLabel popUp;
     private JLabel amountOfMoney;
     private JButton statButton;
     private JButton debtButton;
+    private JLabel amountOfDebt;
     private final Quotes quotes = new Quotes();
 
 
@@ -37,7 +39,7 @@ public class mainScreen extends JFrame {
         rouletteForm = new roulette(this, wallet);
         slotsForm = new slots(this, wallet);
         statForm = new statScreen(this, wallet);
-        debtForm = new debtScreen(this, wallet);
+        debtForm = new debtScreen(this, wallet, debt);
 
 
         diceRollButton.addActionListener(e -> {
@@ -64,17 +66,22 @@ public class mainScreen extends JFrame {
             showPanel(debtForm.getDebtMainPanel());
         });
 
-        //Need to atatch these to all of the other forms
-        javax.swing.Timer timer = new javax.swing.Timer(5000, e -> {
+        javax.swing.Timer timer = new javax.swing.Timer(20000, e -> {
             popUp.setText(quotes.getQuote());
         });
-
         timer.start();
-        javax.swing.Timer timer1 = new javax.swing.Timer(5000, e -> {
-            amountOfMoney.setText(wallet.moneyToString());
-        });
 
+        javax.swing.Timer timer1 = new javax.swing.Timer(100, e -> {
+            amountOfMoney.setText(wallet.moneyToString() + "$");
+        });
         timer1.start();
+
+        javax.swing.Timer timer2 = new javax.swing.Timer(100, e -> {
+            amountOfDebt.setText("-" + debt.debtToString());
+        });
+        timer2.start();
+
+
     }
 
     public void showHome() {

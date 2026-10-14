@@ -282,9 +282,9 @@
         <border type="none"/>
         <children>
           <component id="6b9c3" class="javax.swing.JButton" binding="statScreenReturnButton">
-            <constraints border-constraint="East"/>
+            <constraints border-constraint="Center"/>
             <properties>
-              <text value="Button"/>
+              <text value="Return"/>
             </properties>
           </component>
         </children>
