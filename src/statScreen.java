@@ -21,6 +21,18 @@ public class statScreen {
 
     public statScreen(mainScreen screen, Wallet wallet, Debt debt) {
         this.game = new Game(wallet);
+        RetroStyle.styleScreen(statScreenMainPanel);
+        RetroStyle.styleTitle(statScreenMainLabel, "★  PLAYER STATS  ★");
+        statScreenCenterPanel.setBackground(RetroStyle.PANEL);
+        statScreenCenterPanel.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new java.awt.Color(75, 96, 140), 2),
+                BorderFactory.createEmptyBorder(8, 16, 8, 16)));
+        for (JLabel value : new JLabel[]{walletBalance, roundsPlayed, wins, losses, winRate,
+                creditsWagered, creditsWon, allIns, balance, moneyLost}) {
+            value.setForeground(RetroStyle.GOLD);
+            value.setFont(new java.awt.Font(java.awt.Font.MONOSPACED, java.awt.Font.BOLD, 12));
+        }
+        hideSpacers(statScreenCenterPanel);
         statScreenReturnButton.addActionListener(e -> {
             screen.showHome();
         });
@@ -43,5 +55,15 @@ public class statScreen {
 
     public JPanel getStatMainPanel() {
         return statScreenMainPanel;
+    }
+
+    private void hideSpacers(java.awt.Container container) {
+        for (java.awt.Component component : container.getComponents()) {
+            if (component.getClass().getSimpleName().equals("Spacer")) {
+                component.setVisible(false);
+            } else if (component instanceof java.awt.Container) {
+                hideSpacers((java.awt.Container) component);
+            }
+        }
     }
 }

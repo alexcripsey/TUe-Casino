@@ -61,7 +61,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="b4ea5" class="javax.swing.JLabel">
+          <component id="b4ea5" class="javax.swing.JLabel" binding="slotsDisplay">
             <constraints border-constraint="Center"/>
             <properties>
               <horizontalAlignment value="0"/>

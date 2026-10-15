@@ -5,6 +5,7 @@ import java.awt.*;
 public class mainScreen extends JFrame {
     private final String imagePath = "casino_bg.png";
     private JPanel mainPanel;
+    private JLabel mainTitleLabel;
     private JPanel coinToss;
     private JButton diceRollButton;
     private JButton slotsButton;
@@ -34,6 +35,11 @@ public class mainScreen extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(420, 420);
         setLocationRelativeTo(null);
+        RetroStyle.styleScreen(mainPanel);
+        RetroStyle.styleTitle(mainTitleLabel, "★  TU/e CASINO  ★");
+        popUp.setForeground(RetroStyle.MINT);
+        amountOfMoney.setForeground(RetroStyle.GOLD);
+        amountOfDebt.setForeground(new java.awt.Color(255, 111, 126));
 
         coinTossForm = new coinToss(this, wallet);
         diceRollForm = new diceRoll(this, wallet);
@@ -91,7 +97,7 @@ public class mainScreen extends JFrame {
             return;
         }
 
-        newPanel.setOpaque(false);
+        newPanel.setOpaque(true);
         contentPanel.removeAll();
         contentPanel.setLayout(new BorderLayout());
         contentPanel.add(newPanel, BorderLayout.CENTER);

@@ -14,6 +14,7 @@ public class slots extends JFrame {
     private JPanel slotBottomPanel;
     private JPanel slotsCenterPanel;
     private JLabel slotsTitleLabel;
+    private JLabel slotsDisplay;
     private JButton slotsReturnButtonlimit;
     private final Game game;
     private final Random r = new Random();
@@ -24,9 +25,19 @@ public class slots extends JFrame {
             3, 12,
             4, 5
     );
+    private static final String[] SLOT_SYMBOLS = {"🍒", "🍋", "🔔", "💎", "7️⃣"};
+    private static final String[] SLOT_NAMES = {"CHERRY", "LEMON", "BELL", "DIAMOND", "SEVEN"};
+    private final int[] lastSlots = new int[3];
 
     public slots(mainScreen screen, Wallet wallet) {
         this.game = new Game(wallet);
+        RetroStyle.styleScreen(slotsMainPanel);
+        RetroStyle.styleTitle(slotsTitleLabel, "★  SLOT MACHINE  ★");
+        RetroStyle.styleDisplay(slotsDisplay, "<html><center>" + SLOT_SYMBOLS[0] + " 0 &nbsp; "
+                + SLOT_SYMBOLS[1] + " 1 &nbsp; " + SLOT_SYMBOLS[2] + " 2<br>"
+                + SLOT_SYMBOLS[3] + " 3 &nbsp; " + SLOT_SYMBOLS[4] + " 4<br><br>SPIN TO PLAY</center></html>");
+        slotsDisplay.setFont(new java.awt.Font(java.awt.Font.MONOSPACED, java.awt.Font.BOLD, 18));
+        slotsDisplay.setPreferredSize(new java.awt.Dimension(340, 145));
         slotsReturnButtonlimit.addActionListener(e -> {
             screen.showHome();
         });
@@ -70,6 +81,11 @@ public class slots extends JFrame {
                 }
 
                 int outcome = spin();
+                slotsDisplay.setText("<html><center>" + slotResult(0) + " &nbsp; " + slotResult(1)
+                        + " &nbsp; " + slotResult(2) + "<br><br>"
+                        + (outcome == 0 ? "NO MATCH - TRY AGAIN" : "PAYOUT x" + outcome)
+                        + "</center></html>");
+                slotsDisplay.setForeground(outcome == 0 ? new java.awt.Color(255, 111, 126) : RetroStyle.MINT);
 
                 if (outcome != 0) {
                     wallet.addMoney(betAmount * outcome);
@@ -88,23 +104,28 @@ public class slots extends JFrame {
     }
 
     public int spin() {
-        int slot1 = game.weightedRandom(weights);
-        int slot2 = game.weightedRandom(weights);
-        int slot3 = game.weightedRandom(weights);
+        int slot1 = lastSlots[0] = game.weightedRandom(weights);
+        int slot2 = lastSlots[1] = game.weightedRandom(weights);
+        int slot3 = lastSlots[2] = game.weightedRandom(weights);
 
-        if (slot1 == 0 && slot2 == 0 && slot3 == 0) {
+        if (slot1 == 4 && slot2 == 4 && slot3 == 4) {
             return 25;
-        } else if (slot1 == 1 && slot2 == 1 && slot3 == 1) {
+        } else if (slot1 == 3 && slot2 == 3 && slot3 == 3) {
             return 15;
         } else if (slot1 == 2 && slot2 == 2 && slot3 == 2) {
             return 10;
-        } else if (slot1 == 3 && slot2 == 3 && slot3 == 3) {
+        } else if (slot1 == 1 && slot2 == 1 && slot3 == 1) {
             return 5;
-        } else if (slot1 == 4 && slot2 == 4 && slot3 == 4) {
+        } else if (slot1 == 0 && slot2 == 0 && slot3 == 0) {
             return 3;
         } else if (slot1 == slot2 || slot2 == slot3 || slot1 == slot3) {
             return 1;
         } else return 0;
+    }
+
+    private String slotResult(int reel) {
+        int value = lastSlots[reel];
+        return SLOT_SYMBOLS[value] + "<br>" + SLOT_NAMES[value] + " [" + value + "]";
     }
 
     public JPanel getSlotsMainPanel() {

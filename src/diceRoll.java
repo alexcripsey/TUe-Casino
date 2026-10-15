@@ -15,9 +15,13 @@ public class diceRoll extends JFrame{
     private JButton diceRollReturnButton;
     private final Game game;
     private final Random r = new Random();
+    private int lastRoll;
 
     public diceRoll(mainScreen screen, Wallet wallet) {
         this.game = new Game(wallet);
+        RetroStyle.styleScreen(diceRollMainPanel);
+        RetroStyle.styleTitle(diceRollTitleLabel, "★  DICE ROLL  ★");
+        RetroStyle.styleDisplay(diceRollImage, "⚄  PICK A SIDE  ⚄");
         diceRollReturnButton.addActionListener(e -> {
             screen.showHome();
         });
@@ -60,7 +64,10 @@ public class diceRoll extends JFrame{
                 game.creditsWagered+= betAmount;
                 wallet.subtractMoney(betAmount);
 
-                    if (roll(selectedIndex)) {
+                    boolean won = roll(selectedIndex);
+                    diceRollImage.setText("ROLLED " + lastRoll + (won ? "  - WIN!" : "  - TRY AGAIN"));
+                    diceRollImage.setForeground(won ? RetroStyle.MINT : new java.awt.Color(255, 111, 126));
+                    if (won) {
                         wallet.addMoney(betAmount * 6);
                         game.wins++;
                         game.moneyWon += betAmount * 6;
@@ -75,6 +82,7 @@ public class diceRoll extends JFrame{
 
     public boolean roll(int bet) {
         int r_roll = r.nextInt(6);
+        lastRoll = r_roll + 1;
 
         if (bet == r_roll) {
             return true;

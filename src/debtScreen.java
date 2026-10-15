@@ -21,6 +21,9 @@ public class debtScreen {
 
     public debtScreen(mainScreen screen, Wallet wallet, Debt debt) {
         this.game = new Game(wallet);
+        RetroStyle.styleScreen(panel1);
+        RetroStyle.styleTitle(debtMainLabel, "★  DEBT  ★");
+        debtScreenMainPanel.setBackground(RetroStyle.PANEL);
         returnButton.addActionListener(e -> {
             screen.showHome();
         });

@@ -19,9 +19,14 @@ public class roulette extends JFrame {
     private JComboBox evenOrOdd;
     private final Random r = new Random();
     private final Game game;
+    private int lastSpinNumber;
+    private String lastSpinColor = "Green";
 
     public roulette(mainScreen screen, Wallet wallet) {
         this.game = new Game(wallet);
+        RetroStyle.styleScreen(rouletteMainPanel);
+        RetroStyle.styleTitle(rouletteTitleLabel, "★  ROULETTE  ★");
+        RetroStyle.styleDisplay(rouletteImage, "◎  PLACE YOUR BET  ◎");
         rouletteReturnButton.addActionListener(e -> {
             screen.showHome();
         });
@@ -69,7 +74,11 @@ public class roulette extends JFrame {
 
                 game.creditsWagered+= betAmount;
 
-                if(spin(redBlackGreen, evenOdd)) {
+                boolean won = spin(redBlackGreen, evenOdd);
+                rouletteImage.setText("" + lastSpinNumber + "  " + lastSpinColor.toUpperCase()
+                        + (won ? "  - WIN!" : "  - NO WIN"));
+                rouletteImage.setForeground(won ? RetroStyle.MINT : new java.awt.Color(255, 111, 126));
+                if(won) {
                     wallet.subtractMoney(betAmount);
                     int moneyWon = won(redBlackGreen, evenOdd, betAmount);
                     wallet.addMoney(moneyWon);
@@ -97,8 +106,8 @@ public class roulette extends JFrame {
                 "Red", "Black", "Red", "Black", "Red", "Black",
                 "Red"
         };
-        System.out.println(r_spin);
-        System.out.println(color[r_spin]);
+        lastSpinNumber = r_spin;
+        lastSpinColor = color[r_spin];
 
         if(color[r_spin].equals(redBlackGreen) &&
           ((redBlackGreen.equals("Red") || redBlackGreen.equals("Black")) &&
