@@ -55,35 +55,35 @@ public class roulette extends JFrame {
                 int bet = 0;
                 try {
                     bet = Integer.parseInt(betEntry.getText().trim());
-                }  catch (NullPointerException | NumberFormatException ex) {
+                } catch (NullPointerException | NumberFormatException ex) {
                     bet = 0;
                 } finally {
                     betEntry.setText(game.makeValid(bet));
                 }
                 int betAmount = Integer.parseInt(betEntry.getText());
-                if (betAmount == wallet.getMoney()){
+                if (betAmount == wallet.getMoney()) {
                     game.allIns++;
                 }
 
                 String redBlackGreen = betChoice.getSelectedItem().toString();
                 //cant bet on even or odd if green is selected
-                if (redBlackGreen.equals("Green")){
+                if (redBlackGreen.equals("Green")) {
                     evenOrOdd.setSelectedIndex(0);
                 }
                 String evenOdd = evenOrOdd.getSelectedItem().toString();
 
-                game.creditsWagered+= betAmount;
+                game.creditsWagered += betAmount;
 
                 boolean won = spin(redBlackGreen, evenOdd);
                 rouletteImage.setText("" + lastSpinNumber + "  " + lastSpinColor.toUpperCase()
                         + (won ? "  - WIN!" : "  - NO WIN"));
                 rouletteImage.setForeground(won ? RetroStyle.MINT : new java.awt.Color(255, 111, 126));
-                if(won) {
+                if (won) {
                     wallet.subtractMoney(betAmount);
                     int moneyWon = won(redBlackGreen, evenOdd, betAmount);
                     wallet.addMoney(moneyWon);
                     game.wins++;
-                    game.moneyWon+= moneyWon;
+                    game.moneyWon += moneyWon;
                 } else {
                     wallet.subtractMoney(betAmount);
                     game.losses++;
@@ -94,6 +94,7 @@ public class roulette extends JFrame {
             }
         });
     }
+
     public boolean spin(String redBlackGreen, String evenOdd) {
 
         int r_spin = r.nextInt(37);
@@ -109,24 +110,24 @@ public class roulette extends JFrame {
         lastSpinNumber = r_spin;
         lastSpinColor = color[r_spin];
 
-        if(color[r_spin].equals(redBlackGreen) &&
-          ((redBlackGreen.equals("Red") || redBlackGreen.equals("Black")) &&
-          evenOdd.equals("-"))) {
+        if (color[r_spin].equals(redBlackGreen) &&
+                ((redBlackGreen.equals("Red") || redBlackGreen.equals("Black")) &&
+                        evenOdd.equals("-"))) {
             //won red or black(2x)
             return true;
         } else if (color[r_spin].equals(redBlackGreen) && redBlackGreen.equals("Green")) {
             //won green(36x)
             return true;
-        }else if ((evenOdd.equals("Even") && r_spin % 2 == 0) &&
-                  color[r_spin].equals(redBlackGreen) &&
-                  (redBlackGreen.equals("Red") || redBlackGreen.equals("Black"))) {
+        } else if ((evenOdd.equals("Even") && r_spin % 2 == 0) &&
+                color[r_spin].equals(redBlackGreen) &&
+                (redBlackGreen.equals("Red") || redBlackGreen.equals("Black"))) {
             //won color and even\odd(4x)
             return true;
         } else if ((evenOdd.equals("Odd") && r_spin % 2 != 0) &&
                 color[r_spin].equals(redBlackGreen) &&
                 (redBlackGreen.equals("Red") || redBlackGreen.equals("Black"))) {
-                    //won color and even\odd(4x)
-                    return true;
+            //won color and even\odd(4x)
+            return true;
         } else return false;
     }
 
@@ -134,14 +135,14 @@ public class roulette extends JFrame {
         int n = 0;
         if ((redBlackGreen.equals("Red") || redBlackGreen.equals("Black")) && evenOdd.equals("-")) {
             //won color
-             n += betAmount * 2;
+            n += betAmount * 2;
         } else if (redBlackGreen.equals("Green")) {
             //won green
-             n += betAmount * 36;
+            n += betAmount * 36;
         } else if ((redBlackGreen.equals("Red") || redBlackGreen.equals("Black")) &&
                 (evenOdd.equals("Even") || evenOdd.equals("Odd"))) {
             //won color and even\odd
-             n += betAmount * 4;
+            n += betAmount * 4;
         }
         return n;
     }

@@ -67,14 +67,14 @@ public class slots extends JFrame {
                 int bet = 0;
                 try {
                     bet = Integer.parseInt(slotsBetEntry.getText().trim());
-                }  catch (NullPointerException | NumberFormatException ex) {
+                } catch (NullPointerException | NumberFormatException ex) {
                     bet = 0;
                 } finally {
                     slotsBetEntry.setText(game.makeValid(bet));
                 }
                 int betAmount = Integer.parseInt(slotsBetEntry.getText());
 
-                game.creditsWagered+= betAmount;
+                game.creditsWagered += betAmount;
 
                 if (betAmount == wallet.getMoney()) {
                     game.allIns++;
@@ -90,12 +90,12 @@ public class slots extends JFrame {
                 if (outcome != 0) {
                     wallet.addMoney(betAmount * outcome);
                     game.wins++;
-                    game.moneyWon+= betAmount * outcome;
+                    game.moneyWon += betAmount * outcome;
 
                 } else {
                     wallet.subtractMoney(betAmount);
                     game.losses++;
-                    game.moneyLost+= betAmount;
+                    game.moneyLost += betAmount;
                 }
                 game.roundsPlayed++;
 

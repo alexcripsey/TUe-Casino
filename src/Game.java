@@ -13,7 +13,7 @@ public class Game {
     public static int moneyLost = 0;
 
 
-    public Game (Wallet wallet) {
+    public Game(Wallet wallet) {
         this.wallet = wallet;
     }
 
@@ -34,7 +34,7 @@ public class Game {
 
     public int weightedRandom(Map<Integer, Integer> weights) {
         int sum = 0;
-        
+
         for (int value : weights.values()) {
             sum += value;
         }
@@ -53,17 +53,20 @@ public class Game {
         }
         return selectedItem;
     }
-    public double getWins(){
+
+    public double getWins() {
         double win = this.wins;
         return win;
     }
-    public double getRoundsPlayed(){
+
+    public double getRoundsPlayed() {
         double rounds = this.roundsPlayed;
         return rounds;
     }
+
     public double getWinRate() {
         if (roundsPlayed == 0) {
-            return  0.0;
+            return 0.0;
         } else {
             double n = getWins() / getRoundsPlayed();
             return n;

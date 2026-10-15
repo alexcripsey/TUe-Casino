@@ -84,7 +84,7 @@ public class debtScreen {
                 int amount = Integer.parseInt(paymentEntry.getText().trim());
                 paymentEntry.setText(game.makeValid(amount));
                 int amount1 = Integer.parseInt(paymentEntry.getText().trim());
-                if (amount1 > debt.getDebt() * -1){
+                if (amount1 > debt.getDebt() * -1) {
                     paymentEntry.setText(String.valueOf(debt.getDebt() * -1));
                 }
                 int payment = Integer.parseInt(paymentEntry.getText());

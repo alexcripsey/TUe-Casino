@@ -33,7 +33,7 @@ public class mainScreen extends JFrame {
         setVisible(true);
         setContentPane(mainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(420, 420);
+        setSize(800, 600);
         setLocationRelativeTo(null);
         RetroStyle.styleScreen(mainPanel);
         RetroStyle.styleTitle(mainTitleLabel, "★  TU/e CASINO  ★");
@@ -55,11 +55,11 @@ public class mainScreen extends JFrame {
             showPanel(diceRollForm.getDiceRollPanel());
         });
 
-        coinTossButton.addActionListener( e -> {
+        coinTossButton.addActionListener(e -> {
             showPanel(coinTossForm.getCoinTossPanel());
         });
 
-        slotsButton.addActionListener( e -> {
+        slotsButton.addActionListener(e -> {
             showPanel((slotsForm.getSlotsMainPanel()));
         });
 

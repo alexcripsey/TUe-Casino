@@ -60,13 +60,13 @@ public class coinToss extends JFrame {
                 int bet = 0;
                 try {
                     bet = Integer.parseInt(betEntry.getText().trim());
-                }  catch (NullPointerException | NumberFormatException ex) {
+                } catch (NullPointerException | NumberFormatException ex) {
                     bet = 0;
                 } finally {
                     betEntry.setText(game.makeValid(bet));
                 }
                 int betAmount = Integer.parseInt(betEntry.getText());
-                game.creditsWagered+= betAmount;
+                game.creditsWagered += betAmount;
                 if (betAmount == wallet.getMoney()) {
                     game.allIns++;
                 }
@@ -79,7 +79,7 @@ public class coinToss extends JFrame {
                 if (won) {
                     wallet.addMoney(betAmount);
                     game.wins++;
-                    game.moneyWon+= betAmount;
+                    game.moneyWon += betAmount;
                 } else {
                     wallet.subtractMoney(betAmount);
                     game.losses++;
@@ -151,7 +151,7 @@ public class coinToss extends JFrame {
         });
     }
 
-    public boolean toss(int selectedIndex){
+    public boolean toss(int selectedIndex) {
         int r_toss = r.nextInt(2);
         lastFace = r_toss == 0 ? "Heads" : "Tails";
         if (selectedIndex == r_toss) {
@@ -159,7 +159,7 @@ public class coinToss extends JFrame {
         } else return false;
     }
 
-    public JPanel getCoinTossPanel () {
+    public JPanel getCoinTossPanel() {
         return coinTossMainPanel;
     }
 }

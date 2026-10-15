@@ -6,13 +6,14 @@ public class Wallet {
     }
 
     public void addMoney(int n) {
-        money+= n;
-    }
-    public void subtractMoney(int n){
-        money-= n;
+        money += n;
     }
 
-    public String moneyToString(){
+    public void subtractMoney(int n) {
+        money -= n;
+    }
+
+    public String moneyToString() {
         String amount = String.valueOf(getMoney());
         return amount;
     }

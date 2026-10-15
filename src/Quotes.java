@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Quotes {
     Random r = new Random();
     String[] quotes = {

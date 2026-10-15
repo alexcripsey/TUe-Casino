@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.util.*;
 
-public class diceRoll extends JFrame{
+public class diceRoll extends JFrame {
     private JPanel diceRollMainPanel;
     private JTextField diceRollBetEntry;
     private JComboBox diceRollBetChoice;
@@ -51,31 +51,31 @@ public class diceRoll extends JFrame{
                 int bet = 0;
                 try {
                     bet = Integer.parseInt(diceRollBetEntry.getText().trim());
-                }  catch (NullPointerException | NumberFormatException ex) {
+                } catch (NullPointerException | NumberFormatException ex) {
                     bet = 0;
                 } finally {
                     diceRollBetEntry.setText(game.makeValid(bet));
                 }
                 int betAmount = Integer.parseInt(diceRollBetEntry.getText());
                 int selectedIndex = diceRollBetChoice.getSelectedIndex();
-                if(betAmount == wallet.getMoney()) {
+                if (betAmount == wallet.getMoney()) {
                     game.allIns++;
                 }
-                game.creditsWagered+= betAmount;
+                game.creditsWagered += betAmount;
                 wallet.subtractMoney(betAmount);
 
-                    boolean won = roll(selectedIndex);
-                    diceRollImage.setText("ROLLED " + lastRoll + (won ? "  - WIN!" : "  - TRY AGAIN"));
-                    diceRollImage.setForeground(won ? RetroStyle.MINT : new java.awt.Color(255, 111, 126));
-                    if (won) {
-                        wallet.addMoney(betAmount * 6);
-                        game.wins++;
-                        game.moneyWon += betAmount * 6;
-                    } else {
-                        game.losses++;
-                        game.moneyLost += betAmount;
-                    }
-                    game.roundsPlayed++;
+                boolean won = roll(selectedIndex);
+                diceRollImage.setText("ROLLED " + lastRoll + (won ? "  - WIN!" : "  - TRY AGAIN"));
+                diceRollImage.setForeground(won ? RetroStyle.MINT : new java.awt.Color(255, 111, 126));
+                if (won) {
+                    wallet.addMoney(betAmount * 6);
+                    game.wins++;
+                    game.moneyWon += betAmount * 6;
+                } else {
+                    game.losses++;
+                    game.moneyLost += betAmount;
+                }
+                game.roundsPlayed++;
             }
         });
     }
