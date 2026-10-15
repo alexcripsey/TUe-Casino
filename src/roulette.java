@@ -47,8 +47,14 @@ public class roulette extends JFrame {
         rouletteBetSubmit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int bet = Integer.parseInt(betEntry.getText());
-                betEntry.setText(game.makeValid(bet));
+                int bet = 0;
+                try {
+                    bet = Integer.parseInt(betEntry.getText().trim());
+                }  catch (NullPointerException | NumberFormatException ex) {
+                    bet = 0;
+                } finally {
+                    betEntry.setText(game.makeValid(bet));
+                }
                 int betAmount = Integer.parseInt(betEntry.getText());
                 if (betAmount == wallet.getMoney()){
                     game.allIns++;

@@ -46,8 +46,14 @@ public class coinToss extends JFrame {
         betSubmit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int bet = Integer.parseInt(betEntry.getText().trim());
-                betEntry.setText(game.makeValid(bet));
+                int bet = 0;
+                try {
+                    bet = Integer.parseInt(betEntry.getText().trim());
+                }  catch (NullPointerException | NumberFormatException ex) {
+                    bet = 0;
+                } finally {
+                    betEntry.setText(game.makeValid(bet));
+                }
                 int betAmount = Integer.parseInt(betEntry.getText());
                 game.creditsWagered+= betAmount;
                 if (betAmount == wallet.getMoney()) {

@@ -34,7 +34,7 @@
             </constraints>
             <properties>
               <requestFocusEnabled value="true"/>
-              <text value="Wallet Balanc:"/>
+              <text value="Wallet Balance:"/>
             </properties>
           </component>
           <hspacer id="2b876">

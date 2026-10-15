@@ -44,8 +44,14 @@ public class diceRoll extends JFrame{
         diceRollBetSubmit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int bet = Integer.parseInt(diceRollBetEntry.getText().trim());
-                diceRollBetEntry.setText(game.makeValid(bet));
+                int bet = 0;
+                try {
+                    bet = Integer.parseInt(diceRollBetEntry.getText().trim());
+                }  catch (NullPointerException | NumberFormatException ex) {
+                    bet = 0;
+                } finally {
+                    diceRollBetEntry.setText(game.makeValid(bet));
+                }
                 int betAmount = Integer.parseInt(diceRollBetEntry.getText());
                 int selectedIndex = diceRollBetChoice.getSelectedIndex();
                 if(betAmount == wallet.getMoney()) {

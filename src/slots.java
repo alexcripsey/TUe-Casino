@@ -53,8 +53,14 @@ public class slots extends JFrame {
         slotsBetSubmit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int bet = Integer.parseInt(slotsBetEntry.getText().trim());
-                slotsBetEntry.setText(game.makeValid(bet));
+                int bet = 0;
+                try {
+                    bet = Integer.parseInt(slotsBetEntry.getText().trim());
+                }  catch (NullPointerException | NumberFormatException ex) {
+                    bet = 0;
+                } finally {
+                    slotsBetEntry.setText(game.makeValid(bet));
+                }
                 int betAmount = Integer.parseInt(slotsBetEntry.getText());
 
                 game.creditsWagered+= betAmount;
