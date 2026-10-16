@@ -65,6 +65,8 @@
             <constraints border-constraint="Center"/>
             <properties>
               <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <maximumSize width="128" height="86"/>
               <text value="Slots Machine Image"/>
             </properties>
           </component>

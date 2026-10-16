@@ -33,9 +33,15 @@ public class slots extends JFrame {
         this.game = new Game(wallet);
         RetroStyle.styleScreen(slotsMainPanel);
         RetroStyle.styleTitle(slotsTitleLabel, "★  SLOT MACHINE  ★");
-        RetroStyle.styleDisplay(slotsDisplay, "<html><center>" + SLOT_SYMBOLS[0] + " 0 &nbsp; "
-                + SLOT_SYMBOLS[1] + " 1 &nbsp; " + SLOT_SYMBOLS[2] + " 2<br>"
-                + SLOT_SYMBOLS[3] + " 3 &nbsp; " + SLOT_SYMBOLS[4] + " 4<br><br>SPIN TO PLAY</center></html>");
+        RetroStyle.styleDisplay(slotsDisplay, "<html><center>"
+                + "<table border='0' align='center'>"
+                + "<tr><td align='right'>" + SLOT_SYMBOLS[0] + "</td><td>&nbsp;0</td></tr>"
+                + "<tr><td align='right'>" + SLOT_SYMBOLS[1] + "</td><td>&nbsp;1</td></tr>"
+                + "<tr><td align='right'>" + SLOT_SYMBOLS[2] + "</td><td>&nbsp;2</td></tr>"
+                + "<tr><td align='right'>" + SLOT_SYMBOLS[3] + "</td><td>&nbsp;3</td></tr>"
+                + "<tr><td align='right'>" + SLOT_SYMBOLS[4] + "</td><td>&nbsp;4</td></tr>"
+                + "</table><br>"
+                + "SPIN TO PLAY</center></html>");
         slotsDisplay.setFont(new java.awt.Font(java.awt.Font.MONOSPACED, java.awt.Font.BOLD, 18));
         slotsDisplay.setPreferredSize(new java.awt.Dimension(340, 145));
         slotsReturnButtonlimit.addActionListener(e -> {
@@ -81,18 +87,23 @@ public class slots extends JFrame {
                 }
 
                 int outcome = spin();
-                slotsDisplay.setText("<html><center>" + slotResult(0) + " &nbsp; " + slotResult(1)
-                        + " &nbsp; " + slotResult(2) + "<br><br>"
+                slotsDisplay.setText("<html><center>"
+                        + "<tr><td align='right'>" + slotResult(0)
+                        + "<tr><td align='right'>" + slotResult(1)
+                        + "<tr><td align='right'>" + slotResult(2) + "<br><br>"
                         + (outcome == 0 ? "NO MATCH - TRY AGAIN" : "PAYOUT x" + outcome)
                         + "</center></html>");
                 slotsDisplay.setForeground(outcome == 0 ? new java.awt.Color(255, 111, 126) : RetroStyle.MINT);
 
-                if (outcome != 0) {
+                if (outcome > 1) {
                     wallet.addMoney(betAmount * outcome);
                     game.wins++;
                     game.moneyWon += betAmount * outcome;
 
-                } else {
+                } else if (outcome  == 1) {
+                    game.wins++;
+                    game.moneyWon += betAmount;
+                } else if (outcome == 0) {
                     wallet.subtractMoney(betAmount);
                     game.losses++;
                     game.moneyLost += betAmount;
@@ -125,7 +136,7 @@ public class slots extends JFrame {
 
     private String slotResult(int reel) {
         int value = lastSlots[reel];
-        return SLOT_SYMBOLS[value] + "<br>" + SLOT_NAMES[value] + " [" + value + "]";
+        return SLOT_SYMBOLS[value] + SLOT_NAMES[value] + " [" + value + "]";
     }
 
     public JPanel getSlotsMainPanel() {
